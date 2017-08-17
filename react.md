@@ -30,7 +30,7 @@ Generate the manifest file following the steps below.
 office-toolbox
 ```
 
-![Office](./img/office-toolbox-generate.png)
+![Generate](./img/office-toolbox-generate.png)
 
 You should be able to see your manifest file with the name ends with **manifest.xml**.
 
@@ -104,7 +104,7 @@ Run this in terminal and following the steps below.
 office-toolbox
 ```
 
-![Office](./img/office-toolbox-sideload.png)
+![Sideload](./img/office-toolbox-sideload.png)
 
 Congratulations you just finish your first React add-in for Excel!
 

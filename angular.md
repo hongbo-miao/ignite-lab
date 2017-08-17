@@ -30,13 +30,11 @@ Generate the manifest file following the steps below.
 yo office
 ```
 
-![Office](./img/office-toolbox-generate.png)
+![Generate](./img/office-toolbox-generate.png)
 
 You should be able to see your manifest file with the name ends with **manifest.xml**.
 
 Open it and replace all the ports in the generated manifest file from `3000` to `4200`.
-
-![Office](./img/office-toolbox-validate.png)
 
 ### Step 3. Prepare
 
@@ -107,7 +105,7 @@ Run this in terminal and following the steps below.
 office-toolbox
 ```
 
-![Office](./img/office-toolbox-sideload.png)
+![Sideload](./img/office-toolbox-sideload.png)
 
 Congratulations you just finish your first Angular add-in for Excel!
 
