@@ -1,5 +1,7 @@
 # Build an Add-in with React
 
+An add-in includes two parts, the web app and a manifest file.
+
 ### Step 1. Generate the React project by **Create React App**
 
 Open Visual Studio Code, Click `View` -> `Integrated Terminal`.
@@ -16,7 +18,7 @@ Generate your React app by
 create-react-app my-addin
 ```
 
-### Step 2. Generate the manifest file by **Office Toolbox**.
+### Step 2. Generate the manifest file by **Office Toolbox**
 
 Go to your app folder.
 
@@ -86,7 +88,7 @@ class App extends Component {
 export default App;
 ```
 
-### Step 5. Run
+### Step 5. Run the ap
 
 Run the dev server through the terminal.
 
@@ -94,7 +96,7 @@ Run the dev server through the terminal.
 npm start
 ```
 
-### Step 6. Side load
+### Step 6. Side load the manifest file by **Office Toolbox**
 
 To run the add-in, you need side-load the add-in within the Excel application.
 

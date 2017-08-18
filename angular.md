@@ -1,5 +1,7 @@
 # Build an Add-in with Angular
 
+An add-in includes two parts, the web app and a manifest file.
+
 ### Step 1. Generate the Angular project by **Angular CLI**
 
 Open Visual Studio Code, Click `View` -> `Integrated Terminal`.
@@ -16,7 +18,7 @@ Generate your Angular app by
 ng new my-addin
 ```
 
-### Step 2. Generate the manifest file by **Office Toolbox**.
+### Step 2. Generate the manifest file by **Office Toolbox**
 
 Go to your app folder.
 
@@ -87,7 +89,7 @@ export class AppComponent {
 }
 ```
 
-### Step 5. Run
+### Step 5. Run the app
 
 Run the dev server through the terminal.
 
@@ -95,7 +97,7 @@ Run the dev server through the terminal.
 npm start
 ```
 
-### Step 6. Side load
+### Step 6. Side load the manifest file by **Office Toolbox**
 
 To run the add-in, you need side-load the add-in in the Excel.
 
