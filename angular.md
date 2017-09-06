@@ -29,7 +29,7 @@ cd my-addin
 Generate the manifest file following the steps below.
 
 ```bash
-yo office
+office-toolbox
 ```
 
 ![Generate](./img/office-toolbox-generate.png)
