@@ -36,7 +36,7 @@ office-toolbox
 
 You should be able to see your manifest file with the name ends with **manifest.xml**.
 
-### Step 3. Prepare
+### Step 3. Add and initialize Office.js
 
 Open **public/index.html**, add
 
