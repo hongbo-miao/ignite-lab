@@ -38,7 +38,7 @@ You should be able to see your manifest file with the name ends with **manifest.
 
 Open it and replace all the ports in the generated manifest file from `3000` to `4200`.
 
-### Step 3. Prepare
+### Step 3. Add and initialize Office.js
 
 Open **src/index.html**, add
 
