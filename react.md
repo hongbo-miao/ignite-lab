@@ -48,7 +48,7 @@ When prompted, supply the following information:
 
 The manifest filename ends with **manifest.xml** and is located in the root directory of your project.
 
-### Step 3. Prepare
+### Step 3. Add and initialize Office.js
 
 Open **public/index.html**, and add the following before the `</head>` tag.
 
