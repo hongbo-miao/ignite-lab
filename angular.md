@@ -47,7 +47,7 @@ When prompted, supply the following information:
 
 The manifest filename ends with **manifest.xml** and is located in the root directory of your project.
 
-Open the manifest and replace all the ports in the generated manifest file from `:3000` to `:4200`.
+Open the manifest and replace all the ports in the generated manifest file from `https://localhost:3000` to `http://localhost:4200`.
 
 ### Step 3. Prepare Angular project to integrate with Office
 
