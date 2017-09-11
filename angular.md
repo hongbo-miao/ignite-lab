@@ -49,7 +49,7 @@ The manifest filename ends with **manifest.xml** and is located in the root dire
 
 Open the manifest and replace all the ports in the generated manifest file from `https://localhost:3000` to `http://localhost:4200`.
 
-### Step 3. Prepare Angular project to integrate with Office
+### Step 3. Add and initialize Office.js
 
 Open **src/index.html**, and add the following before the `</head>` tag.
 
