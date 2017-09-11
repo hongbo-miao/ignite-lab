@@ -18,7 +18,8 @@ Generate your React app by
 create-react-app my-addin
 ```
 
-### Step 2. Generate the manifest file by **Office Toolbox**
+
+### Step 2. Generate the manifest file by **[Yo Office](https://github.com/OfficeDev/generator-office)**
 
 Go to your app folder.
 
@@ -26,27 +27,36 @@ Go to your app folder.
 cd my-addin
 ```
 
-Generate the manifest file following the steps below.
+Use the following command to create the Office manifest file with [the Yeoman generator for Office Add-ins](https://github.com/OfficeDev/generator-office):
 
 ```bash
-office-toolbox
+yo office
 ```
+
+When prompted, supply the following information:
+
+|Prompt|Response|
+|-|-|
+|New subfolder|No is default. Press enter or type 'n' to use current directory|
+|Add-in name|Type the add-in name used above, _my-addin_|
+|Supported Office host|Excel|
+|Create new add-in|No, I only need a manifest file|
 
 ![Generate](./img/office-toolbox-generate.png)
 
-You should be able to see your manifest file with the name ends with **manifest.xml**.
+> If prompted to overwrite package.json, type 'n' to decline.
+
+The manifest filename ends with **manifest.xml** and is located in the root directory of your project.
 
 ### Step 3. Prepare
 
-Open **public/index.html**, add
+Open **public/index.html**, and add the following before the `</head>` tag.
 
 ```html
 <script src="https://appsforoffice.microsoft.com/lib/beta/hosted/office.debug.js"></script>
 ```
 
-before `</head>` tag.
-
-Open **src/index.js**, add `Office.initialize` out of `ReactDOM.render(<App />, document.getElementById('root'));` like below:
+Open **src/index.js**, and replace `ReactDOM.render(<App />, document.getElementById('root'));` with the following:
 
 ```typescript
 Office.initialize = () => {
@@ -54,9 +64,9 @@ Office.initialize = () => {
 };
 ```
 
-### Step 4. Add "Color Me"
+### Step 4. Add "Color Me" component
 
-Open **src/App.js**. Replace by
+Open **src/App.js**. Replace contents with:
 
 ```javascript
 import React, { Component } from 'react';
@@ -88,7 +98,7 @@ class App extends Component {
 export default App;
 ```
 
-### Step 5. Run the ap
+### Step 5. Run the app
 
 Run the dev server through the terminal.
 
@@ -96,17 +106,23 @@ Run the dev server through the terminal.
 npm start
 ```
 
-### Step 6. Side load the manifest file by **Office Toolbox**
+### Step 6. Side load the manifest file into Office
 
-To run the add-in, you need side-load the add-in within the Excel application.
+To run the add-in, you need load the add-in into Excel. Below, we are using an open-source project currently in development, called [Office-Toolbox](https://github.com/OfficeDev/office-toolbox). It is not part of the official Office toolchain yet, but makes the sideloading process easier. Try office-toolbox below! Or you can follow our manual sideloading process documented [here](https://dev.office.com/docs/add-ins/testing/create-a-network-shared-folder-catalog-for-task-pane-and-content-add-ins).
 
-Run this in terminal and following the steps below.
+#### Running Office-Toolbox
+
+Open a new terminal, and run the following command. Replace 'my-addin-manifest.xml' with the name of the manifest file in your root directory (if different).
 
 ```bash
-office-toolbox
+office-toolbox -m my-addin-manifest.xml -a excel 
 ```
-
+> **Did You Know:** You can also run 'office-toolbox' without passing in arguments, and you will be prompted as shown in the image below.
 ![Sideload](./img/office-toolbox-sideload.png)
 
-Congratulations you just finish your first React add-in for Excel!
+Your add-in should open in Excel. Click the 'Show Taskpane' button on the 'Home' tab to open your add-in!
+
+![Final Result]()
+
+#### Congratulations! You just finished your first React add-in for Excel! 
 
