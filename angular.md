@@ -37,7 +37,7 @@ When prompted, supply the following information:
 |Prompt|Response|
 |---|---|
 |New subfolder|Press enter or type 'n' to use current directory|
-|Add-in name|Type 'my-addin' to match the name of your React app|
+|Add-in name|Press enter to use the default name|
 |Supported Office host|Excel|
 |Create new add-in|No, I only need a manifest file|
 
