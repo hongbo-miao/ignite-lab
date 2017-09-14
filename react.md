@@ -37,8 +37,8 @@ When prompted, supply the following information:
 
 |Prompt|Response|
 |---|---|
-|New subfolder|No is default. Press enter or type 'n' to use current directory|
-|Add-in name|Let's use the default name, just press enter|
+|New subfolder|Press enter or type 'n' to use current directory|
+|Add-in name|Press enter to use the default.|
 |Supported Office host|Excel|
 |Create new add-in|No, I only need a manifest file|
 
