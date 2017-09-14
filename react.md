@@ -39,12 +39,12 @@ When prompted, supply the following information:
 |---|---|
 |New subfolder|Press enter or type 'n' to use current directory|
 |Add-in name|Press enter to use the default.|
-|Supported Office host|Excel|
+|Supported Office host|Press Enter to choose Excel|
 |Create new add-in|No, I only need a manifest file|
 
 ![Generate](./img/office-toolbox-generate.png)
 
-> If prompted to overwrite package.json, type 'n' to decline.
+> If prompted to overwrite package.json, type 'n' then press Enter to decline.
 
 ### Step 3. Add and initialize Office.js
 
