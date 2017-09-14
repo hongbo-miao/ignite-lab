@@ -29,7 +29,7 @@ cd my-addin
 Use the following command to create the Office manifest file with [the Yeoman generator for Office Add-ins](https://github.com/OfficeDev/generator-office):
 
 ```bash
-yo office
+yo office --skip-install
 ```
 
 When prompted, supply the following information:
@@ -38,18 +38,21 @@ When prompted, supply the following information:
 |---|---|
 |New subfolder|Press enter or type 'n' to use current directory|
 |Add-in name|Press enter to use the default name|
-|Supported Office host|Excel|
+|Supported Office host|Press Enter to choose Excel|
 |Create new add-in|No, I only need a manifest file|
 
 ![Generate](./img/office-toolbox-generate.png)
 
-> If prompted to overwrite package.json, type 'n' to decline.
+> If prompted to overwrite package.json, type 'n' then press Enter to decline.
 
-The manifest filename ends with **manifest.xml** and is located in the root directory of your project.
-
-Open the manifest and replace all `https://localhost:3000` to `http://localhost:4200`.
 
 ### Step 3. Add and initialize Office.js
+
+Type the following command into the terminal.
+
+`code .` 
+
+This will open your project in Visual Studio Code. Open the manifest and replace all `https://localhost:3000` to `http://localhost:4200`. The manifest filename ends with **manifest.xml** and is located in the root directory of your project.
 
 Open **src/index.html**, and add the following before the `</head>` tag.
 
@@ -58,7 +61,7 @@ Open **src/index.html**, and add the following before the `</head>` tag.
 ```
 
 
-Open **src/main.ts**, and replace `platformBrowserDynamic().bootstrapModule(AppModule);` with the following:
+Open **src/main.ts**, and replace the line containing `platformBrowserDynamic().bootstrapModule(AppModule);` with the following:
 
 ```typescript
 declare const Office: any;
@@ -101,7 +104,7 @@ export class AppComponent {
 
 ### Step 5. Run the app
 
-Run the dev server through the terminal.
+Save all changes in VS Code. Reopen the terminal. Make sure you are in the root directory of the project, then run the dev server:
 
 ```bash
 npm start
@@ -113,17 +116,19 @@ To run the add-in, you need load the add-in into Excel. Below, we are using an o
 
 #### Run Office-Toolbox
 
-Open a new terminal, and run the following command. Replace 'my-addin-manifest.xml' with the name of the manifest file in your root directory (if different).
+To use office-toolbox, open a new terminal window, and navigate to the root directory of the project (c:\Users\Administrator\Desktop\My-Office-Addin). Run the following command.
 
 ```bash
 office-toolbox sideload -m my-office-add-in-manifest.xml -a excel
 ```
-> **Did You Know:** You can also run 'office-toolbox' without passing in arguments, and you will be prompted as shown in the image below.
-![Sideload](./img/office-toolbox-sideload.png)
 
-Your add-in should open in Excel. Click the 'Show Taskpane' button on the 'Home' tab to open your add-in!
+> **Don't Panic!** Office-Toolbox may spit out some errors, but it will still load your add-in into Excel.
+
+Office-Toolbox will then launch Excel with your add-in loaded. Click the 'Show Taskpane' button on the 'Home' tab to reveal the taskpane.
 
 ![Final Result]()
 
 #### Congratulations! You just finished your first Angular add-in for Excel! 
 
+> **Did You Know:** You can also run 'office-toolbox' without passing in arguments, and you will be prompted as shown in the image below.
+![Sideload](./img/office-toolbox-sideload.png)
