@@ -58,13 +58,21 @@ Open **src/index.html**, and add the following before the `</head>` tag.
 ```
 
 
-Open **src/main.ts**, and replace `platformBrowserDynamic().bootstrapModule(AppModule);` with the following:
+Open **src/main.ts**, and replace
+
+```typescript
+platformBrowserDynamic().bootstrapModule(AppModule)
+  .catch(err => console.log(err));
+```
+
+with the following:
 
 ```typescript
 declare const Office: any;
 
 Office.initialize = () => {
-  platformBrowserDynamic().bootstrapModule(AppModule);
+  platformBrowserDynamic().bootstrapModule(AppModule)
+    .catch(err => console.log(err));
 };
 ```
 
