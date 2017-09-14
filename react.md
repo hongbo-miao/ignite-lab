@@ -60,7 +60,9 @@ Open **public/index.html**, and add the following before the `</head>` tag.
 
 Open **src/index.js**, and replace `ReactDOM.render(<App />, document.getElementById('root'));` with the following:
 
-```typescript
+```javascript
+const Office = window.Office;
+
 Office.initialize = () => {
   ReactDOM.render(<App />, document.getElementById('root'));
 };
