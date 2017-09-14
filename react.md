@@ -36,9 +36,9 @@ yo office
 When prompted, supply the following information:
 
 |Prompt|Response|
-|-|-|
+|---|---|
 |New subfolder|No is default. Press enter or type 'n' to use current directory|
-|Add-in name|Type the add-in name used above, _my-addin_|
+|Add-in name|Let's use the default name, just press enter|
 |Supported Office host|Excel|
 |Create new add-in|No, I only need a manifest file|
 
@@ -114,12 +114,12 @@ npm start
 
 To run the add-in, you need load the add-in into Excel. Below, we are using an open-source project currently in development, called [Office-Toolbox](https://github.com/OfficeDev/office-toolbox). It is not part of the official Office toolchain yet, but makes the sideloading process easier. Try office-toolbox below! Or you can follow our manual sideloading process documented [here](https://dev.office.com/docs/add-ins/testing/create-a-network-shared-folder-catalog-for-task-pane-and-content-add-ins).
 
-#### Running Office-Toolbox
+#### Run Office-Toolbox
 
 Open a new terminal, and run the following command. Replace 'my-addin-manifest.xml' with the name of the manifest file in your root directory (if different).
 
 ```bash
-office-toolbox -m my-addin-manifest.xml -a excel 
+office-toolbox sideload -m my-office-add-in-manifest.xml -a excel
 ```
 > **Did You Know:** You can also run 'office-toolbox' without passing in arguments, and you will be prompted as shown in the image below.
 ![Sideload](./img/office-toolbox-sideload.png)
