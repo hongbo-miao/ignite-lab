@@ -54,7 +54,7 @@ Open the manifest and replace all `https://localhost:3000` to `http://localhost:
 Open **src/index.html**, and add the following before the `</head>` tag.
 
 ```html
-<script src="https://appsforoffice.microsoft.com/lib/beta/hosted/office.debug.js"></script>
+<script src="https://appsforoffice.microsoft.com/lib/1/hosted/office.debug.js"></script>
 ```
 
 
