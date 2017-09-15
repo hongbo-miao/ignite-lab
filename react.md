@@ -123,7 +123,9 @@ office-toolbox sideload -m my-office-add-in-manifest.xml -a excel
 > **Did You Know:** You can also run 'office-toolbox' without passing in arguments, and you will be prompted as shown in the image below.
 ![Sideload](./img/office-toolbox-sideload.png)
 
-Your add-in should open in Excel. Click the 'Show Taskpane' button on the 'Home' tab to open your add-in!
+Your add-in should open in Excel. Click the 'Show Taskpane' button on the 'Home' tab to open your add-in.
+
+Select the range and click **Color Me** button.
 
 ![Result](./img/result.png)
 
