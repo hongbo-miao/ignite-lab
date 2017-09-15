@@ -49,7 +49,7 @@ The manifest filename ends with **manifest.xml** and is located in the root dire
 
 Open the manifest and replace all `https://localhost:3000` to `http://localhost:4200`.
 
-### Step 3. Add and initialize Office.js
+### Step 3. Initialize
 
 Open **src/index.html**, and add the following before the `</head>` tag.
 
@@ -76,6 +76,25 @@ Office.initialize = () => {
 };
 ```
 
+On Windows, since the add-in platform uses Internet Explorer, uncomment these lines in **src/polyfills.ts**.
+
+```typescript
+import 'core-js/es6/symbol';
+import 'core-js/es6/object';
+import 'core-js/es6/function';
+import 'core-js/es6/parse-int';
+import 'core-js/es6/parse-float';
+import 'core-js/es6/number';
+import 'core-js/es6/math';
+import 'core-js/es6/string';
+import 'core-js/es6/date';
+import 'core-js/es6/array';
+import 'core-js/es6/regexp';
+import 'core-js/es6/map';
+import 'core-js/es6/weak-map';
+import 'core-js/es6/set';
+```
+
 ### Step 4. Add "Color Me" component
 
 Open **src/app/app.component.html**. Replace contents with:
@@ -100,7 +119,7 @@ export class AppComponent {
   onColorMe() {
     Excel.run(async (context) => {
       const range = context.workbook.getSelectedRange();
-      range.format.fill.color = 'green';
+      range.format.fill.color = 'blue';
       await context.sync();
     });
   }
@@ -126,12 +145,13 @@ Open a new terminal, and run the following command. Replace 'my-addin-manifest.x
 ```bash
 office-toolbox sideload -m my-office-add-in-manifest.xml -a excel
 ```
+
 > **Did You Know:** You can also run 'office-toolbox' without passing in arguments, and you will be prompted as shown in the image below.
 ![Sideload](./img/office-toolbox-sideload.png)
 
 Your add-in should open in Excel. Click the 'Show Taskpane' button on the 'Home' tab to open your add-in!
 
-![Final Result]()
+![Result](./img/result.png)
 
 #### Congratulations! You just finished your first Angular add-in for Excel! 
 

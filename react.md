@@ -50,7 +50,7 @@ The manifest filename ends with **manifest.xml** and is located in the root dire
 
 Open the manifest and replace all `https://localhost:3000` to `http://localhost:3000`.
 
-### Step 3. Add and initialize Office.js
+### Step 3. Initialize
 
 Open **public/index.html**, and add the following before the `</head>` tag.
 
@@ -75,8 +75,6 @@ Open **src/App.js**. Replace contents with:
 ```javascript
 import React, { Component } from 'react';
 
-const Excel = window.Excel;
-
 class App extends Component {
   constructor(props) {
     super(props);
@@ -85,9 +83,9 @@ class App extends Component {
   }
 
   onColorMe() {
-    Excel.run(async (context) => {
+    window.Excel.run(async (context) => {
       const range = context.workbook.getSelectedRange();
-      range.format.fill.color = 'green';
+      range.format.fill.color = 'blue';
       await context.sync();
     });
   }
@@ -121,12 +119,13 @@ Open a new terminal, and run the following command. Replace 'my-addin-manifest.x
 ```bash
 office-toolbox sideload -m my-office-add-in-manifest.xml -a excel
 ```
+
 > **Did You Know:** You can also run 'office-toolbox' without passing in arguments, and you will be prompted as shown in the image below.
 ![Sideload](./img/office-toolbox-sideload.png)
 
 Your add-in should open in Excel. Click the 'Show Taskpane' button on the 'Home' tab to open your add-in!
 
-![Final Result]()
+![Result](./img/result.png)
 
-#### Congratulations! You just finished your first React add-in for Excel! 
+Congratulations! You just finished your first React add-in for Excel! 
 
