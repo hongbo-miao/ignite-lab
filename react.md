@@ -46,7 +46,7 @@ When prompted, supply the following information:
 
 > If prompted to overwrite package.json, type 'n' then press Enter to decline.
 
-### Step 3. Add and initialize Office.js
+### Step 3. Initialize
 
 Type the following command into the terminal.
 
@@ -57,7 +57,7 @@ This will open your project in Visual Studio Code. Open the manifest and replace
 Next, open **public/index.html**, and add the following before the `</head>` tag.
 
 ```html
-<script src="https://appsforoffice.microsoft.com/lib/beta/hosted/office.debug.js"></script>
+<script src="https://appsforoffice.microsoft.com/lib/1/hosted/office.debug.js"></script>
 ```
 
 Open **src/index.js**, and replace `ReactDOM.render(<App />, document.getElementById('root'));` with the following:
@@ -77,8 +77,6 @@ Open **src/App.js**. Replace contents with:
 ```javascript
 import React, { Component } from 'react';
 
-// const Excel = window.Excel;
-
 class App extends Component {
   constructor(props) {
     super(props);
@@ -89,7 +87,7 @@ class App extends Component {
   onColorMe() {
     window.Excel.run(async (context) => {
       const range = context.workbook.getSelectedRange();
-      range.format.fill.color = 'green';
+      range.format.fill.color = 'blue';
       await context.sync();
     });
   }
@@ -131,9 +129,11 @@ office-toolbox sideload -m my-office-add-in-manifest.xml -a excel
 
 Office-Toolbox will then launch Excel with your add-in loaded. Click the 'Show Taskpane' button on the 'Home' tab to reveal the taskpane.
 
-![Final Result](img/final-colorme.png)
+Select the range and click **Color Me** button.
 
-#### Congratulations! You just finished your first React add-in for Excel! 
+![Result](./img/result.png)
+
+Congratulations! You just finished your first React add-in for Excel! 
 
 > **Did You Know:** You can also run 'office-toolbox' without passing in arguments, and you will be prompted as shown in the image below.
 ![Sideload](./img/office-toolbox-sideload.png)

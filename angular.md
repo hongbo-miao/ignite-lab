@@ -49,23 +49,50 @@ The manifest filename ends with **manifest.xml** and is located in the root dire
 
 Open the manifest and replace all `https://localhost:3000` to `http://localhost:4200`.
 
-### Step 3. Add and initialize Office.js
+### Step 3. Initialize
 
 Open **src/index.html**, and add the following before the `</head>` tag.
 
 ```html
-<script src="https://appsforoffice.microsoft.com/lib/beta/hosted/office.debug.js"></script>
+<script src="https://appsforoffice.microsoft.com/lib/1/hosted/office.debug.js"></script>
 ```
 
 
-Open **src/main.ts**, and replace `platformBrowserDynamic().bootstrapModule(AppModule);` with the following:
+Open **src/main.ts**, and replace
+
+```typescript
+platformBrowserDynamic().bootstrapModule(AppModule)
+  .catch(err => console.log(err));
+```
+
+with the following:
 
 ```typescript
 declare const Office: any;
 
 Office.initialize = () => {
-  platformBrowserDynamic().bootstrapModule(AppModule);
+  platformBrowserDynamic().bootstrapModule(AppModule)
+    .catch(err => console.log(err));
 };
+```
+
+On Windows, since the add-in platform uses Internet Explorer, uncomment these lines in **src/polyfills.ts**.
+
+```typescript
+import 'core-js/es6/symbol';
+import 'core-js/es6/object';
+import 'core-js/es6/function';
+import 'core-js/es6/parse-int';
+import 'core-js/es6/parse-float';
+import 'core-js/es6/number';
+import 'core-js/es6/math';
+import 'core-js/es6/string';
+import 'core-js/es6/date';
+import 'core-js/es6/array';
+import 'core-js/es6/regexp';
+import 'core-js/es6/map';
+import 'core-js/es6/weak-map';
+import 'core-js/es6/set';
 ```
 
 ### Step 4. Add "Color Me" component
@@ -92,7 +119,7 @@ export class AppComponent {
   onColorMe() {
     Excel.run(async (context) => {
       const range = context.workbook.getSelectedRange();
-      range.format.fill.color = 'green';
+      range.format.fill.color = 'blue';
       await context.sync();
     });
   }
@@ -118,12 +145,15 @@ Open a new terminal, and run the following command. Replace 'my-addin-manifest.x
 ```bash
 office-toolbox sideload -m my-office-add-in-manifest.xml -a excel
 ```
+
 > **Did You Know:** You can also run 'office-toolbox' without passing in arguments, and you will be prompted as shown in the image below.
 ![Sideload](./img/office-toolbox-sideload.png)
 
-Your add-in should open in Excel. Click the 'Show Taskpane' button on the 'Home' tab to open your add-in!
+Your add-in should open in Excel. Click the 'Show Taskpane' button on the 'Home' tab to open your add-in.
 
-![Final Result]()
+Select the range and click **Color Me** button.
+
+![Result](./img/result.png)
 
 #### Congratulations! You just finished your first Angular add-in for Excel! 
 
